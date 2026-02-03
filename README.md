@@ -1,6 +1,6 @@
 # PathOps
 
-![Locomotive Rail](./img/locomotive-rail.png)
+![Locomotive Rail](./img/pathops-emblem.webp)
 
 ## Rails for live coding in production
 
