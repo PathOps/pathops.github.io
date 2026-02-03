@@ -71,7 +71,7 @@ pathops create app frontend --stack react
 
 ## Links
 
-- Manifesto: [manifesto.md](./docs/manifesto.md) 
-- Docs: [docs](./docs/) 
-- GitHub: [https://github.com/orgs/PathOps/repositories](https://github.com/orgs/PathOps/repositories)
-- Demo: [https://demo.pathops.io](https://demo.pathops.io)
+- [Manifesto](./docs/manifesto.md) 
+- [Docs](./docs/) 
+- [GitHub](https://github.com/orgs/PathOps/repositories)
+- [Demo](https://demo.pathops.io)
