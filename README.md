@@ -41,33 +41,15 @@ All actions are visible, reviewable, and auditable.
 
 ### Live demo
 
-Try PathOps live at:
-
-https://demo.pathops.io
-
+Try PathOps live at:  
+  
+[https://demo.pathops.io](https://demo.pathops.io) 
 
 ### Video demo
 
 Watch the walkthrough:
 
-https://www.youtube.com/watch?v=YOUR_VIDEO_ID
-
-
-### Quickstart (example)
-
-```bash
-# install CLI (example)
-curl -fsSL https://pathops.io/install.sh | bash
-
-# bootstrap
-pathops login
-pathops bootstrap cluster-a
-pathops create project shop
-
-# create apps
-pathops create app backend --stack spring-boot
-pathops create app frontend --stack react
-```
+[Watch video](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
 ## Links
 
