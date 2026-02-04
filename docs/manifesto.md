@@ -1,3 +1,4 @@
+# [Docs](./README.md) 
 # PathOps Manifesto
 **Rails for live coding in production.**
 
