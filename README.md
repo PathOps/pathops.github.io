@@ -47,12 +47,10 @@ Try PathOps live at:
 
 ### Video demo
 
-Watch the walkthrough:
+A quick walkthrough:  
 
-[Watch video](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[Watch the video](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
 ## Links
-
-- [Manifesto](./docs/manifesto.md) 
+- [Manifesto](./docs/manifesto.md)
 - [GitHub](https://github.com/orgs/PathOps/repositories)
-- [Demo](https://demo.pathops.io)
