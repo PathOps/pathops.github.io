@@ -1,3 +1,4 @@
+# [Docs](./README.md) 
 # PathOps Glossary
 
 ## App
