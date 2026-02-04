@@ -1,3 +1,4 @@
+# [Docs](./README.md)
 # Security
 
 PathOps is designed to operate in sensitive environments (CI/CD, clusters, credentials).
