@@ -1,3 +1,4 @@
+# [Docs](./README.md) 
 # PathOps Principles
 
 These principles are non-negotiable.  
