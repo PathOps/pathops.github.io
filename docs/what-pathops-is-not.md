@@ -1,3 +1,4 @@
+# [Docs](./README.md) 
 # What PathOps Is NOT
 
 ## PathOps is NOT an AI coding assistant
