@@ -1,5 +1,5 @@
 # [Docs](./README.md) 
-# PathOps Manifesto
+# PathOps Documents
 
 This repository contains the guiding documents for **PathOps**.
 
