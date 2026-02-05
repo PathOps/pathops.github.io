@@ -82,3 +82,10 @@ Every important failure should result in an evidence bundle:
 PathOps should integrate with existing tools first.
 Replacing tools is optional and should not be required to adopt PathOps.
 
+## 10) Intent before change
+
+PathOps governs intent, not code.
+
+## 11) Production signals, paths act
+
+Production never applies changes directly.

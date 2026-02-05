@@ -44,3 +44,11 @@ Constraints and policies that keep automation safe:
 - required checks
 - rollout rules
 
+## Vibe Coding
+Exploratory development focused on discovery, not delivery.
+
+## Path-Ready System
+An artifact that has entered a governed path and can evolve safely.
+
+## Change Intent
+A declared intention to modify a system, evaluated by PathOps.

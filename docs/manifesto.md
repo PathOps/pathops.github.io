@@ -66,6 +66,23 @@ PathOps reduces derailments.
 
 ---
 
+### Flow of Practices
+
+![Flow of Practices](../img/flow-of-practices.webp)
+
+PathOps recognizes two complementary practices:
+
+- **Vibe Coding** for exploration and discovery
+- **Live Coding** for intentional evolution
+
+Vibe Coding ≠ delivery.   
+Live Coding = evolution. 
+
+Exploration is allowed.
+Evolution is governed.
+
+---
+
 ## What PathOps optimizes for
 
 1. **Trust through visibility**  

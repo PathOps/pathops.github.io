@@ -6,6 +6,11 @@ PathOps does not compete with tools that write code.
 Those tools generate changes.
 **PathOps governs whether those changes are allowed to ship.**
 
+## PathOps is NOT vibe coding
+
+PathOps does not guide exploration.
+It governs what happens after exploration is kept.
+
 ## PathOps is NOT a replacement for CI/CD
 PathOps does not replace Jenkins, GitHub Actions, GitLab CI, or Argo CD.
 It coordinates them and interprets outcomes.

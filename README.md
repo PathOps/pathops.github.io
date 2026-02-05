@@ -9,6 +9,9 @@ PathOps is the control plane that keeps AI-assisted development **safe, auditabl
 Live coding is powerful — but without rails, it can derail.
 PathOps provides those rails.
 
+## How PathOps Fits Together
+
+![PathOps Workflow](./img/pathops-workflow.webp)
 
 ## How it works
 
