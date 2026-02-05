@@ -12,7 +12,9 @@ This repository contains the guiding documents for **PathOps**.
 ## Documents
 
 - **[manifesto.md](./manifesto.md)** — the “why” and the core promise
-- **[principles.md](./principles.md)** — non-negotiable design principles
+- **[principles.md](./principles.md)** — non-negotiable design 
+principles
+- **[architecture.md](./architecture.md)** — conceptual model + modular implementation map
 - **[artifact-states.md](./artifact-states.md)** — PathOps distinguishes between different states of a software artifact
 - **[what-pathops-is-not.md](./what-pathops-is-not.md)** — boundaries and anti-goals
 - **[glossary.md](./glossary.md)** — shared terminology

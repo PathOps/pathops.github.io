@@ -58,3 +58,19 @@ A declared intention to modify a system, evaluated by PathOps.
 A structured set of identifiers and metadata that describes what change is being executed, for which artifact, under which path, and in which environment.
 
 Change Context is propagated across pipelines, deploys, and runtime signals to allow PathOps to correlate actions, evidence, and outcomes.
+
+## Change Set
+A coordinated set of changes spanning one or more repositories
+that must be validated and deployed as a single unit.
+
+A Change Set represents a project-level change transaction.
+It has a lifecycle, produces evidence, and completes only
+when all affected applications and components are successfully deployed.
+
+States:
+- planned
+- in_progress
+- validating
+- completed
+- failed
+- rolled_back
