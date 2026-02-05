@@ -7,8 +7,6 @@ But speed without rails becomes risk.
 
 PathOps exists to keep AI-powered development **on track** — from intent to production — using auditable change, evidence, and guardrails.
 
----
-
 ## The promise
 
 PathOps turns intent into **safe, reviewable, production-grade change**.
@@ -20,8 +18,6 @@ It does so by enforcing a simple rule:
 
 PathOps does not “patch production”.  
 PathOps proposes changes via pull requests.
-
----
 
 ## The problem
 
@@ -40,8 +36,6 @@ But they can also:
 Traditional CI/CD was designed for human-paced change.  
 AI changes are faster, broader, and easier to misjudge.
 
----
-
 ## The PathOps approach
 
 PathOps is a control plane that coordinates:
@@ -54,8 +48,6 @@ PathOps is a control plane that coordinates:
 
 PathOps makes production behavior part of the feedback loop.
 
----
-
 ## The mental model
 
 - **Live coding** is the locomotive.
@@ -63,8 +55,6 @@ PathOps makes production behavior part of the feedback loop.
 
 PathOps does not reduce power.  
 PathOps reduces derailments.
-
----
 
 ### Flow of Practices
 
@@ -80,8 +70,6 @@ Live Coding = evolution.
 
 Exploration is allowed.
 Evolution is governed.
-
----
 
 ## What PathOps optimizes for
 
@@ -100,8 +88,6 @@ Evolution is governed.
 5. **Minimalism**  
    Prefer two reliable paths over ten configurable paths.
 
----
-
 ## What PathOps enables
 
 - Fast iteration with AI coding tools **without losing control**
@@ -110,8 +96,6 @@ Evolution is governed.
 - Incidents that produce **evidence bundles**
 - Recovery that happens via **PRs**, not hidden patches
 
----
-
 ## The stance
 
 PathOps is opinionated.
@@ -119,12 +103,9 @@ PathOps is opinionated.
 If a feature makes PathOps faster but less trustworthy, it does not belong.  
 If it makes AI safer for production, it does.
 
----
-
 ## The long-term vision
 
 PathOps is not a replacement for teams.  
 It is a structure that allows teams — and AI — to move quickly without falling off the track.
 
 **Rails matter.**
-
