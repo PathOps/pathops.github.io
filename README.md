@@ -9,20 +9,13 @@ PathOps is the control plane that keeps AI-assisted development **safe, auditabl
 Live coding is powerful — but without rails, it can derail.
 PathOps provides those rails.
 
-### Flow of Practices
+## Flow of Practices
 
 ![Flow of Practices](./img/flow-of-practices.webp)
 
-PathOps recognizes two complementary practices:
+This diagram illustrates how PathOps separates exploration from delivery.
 
-- **Vibe Coding** for exploration and discovery
-- **Live Coding** for intentional evolution
-
-Vibe Coding ≠ delivery.   
-Live Coding = evolution. 
-
-Exploration is allowed.
-Evolution is governed.
+Learn more in the [Manifesto](./docs/manifesto.md)
 
 ## How PathOps Fits Together
 
