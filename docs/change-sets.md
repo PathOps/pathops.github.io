@@ -16,8 +16,6 @@ branches, pull requests, checks, deployments, and evidence.
 
 This document defines how **Change Sets** work when authoring is partially or fully opaque.
 
----
-
 ## 1) What a Change Set represents
 
 A **Change Set** is the core unit of change in PathOps.
@@ -35,8 +33,6 @@ A Change Set has:
 - reversibility expectations
 
 PathOps treats Change Sets as first-class objects, regardless of how the code was written.
-
----
 
 ## 2) The problem of opaque authoring
 
@@ -58,8 +54,6 @@ It is a **boundary**.
 
 The system must remain correct and auditable even when authoring is opaque.
 
----
-
 ## 3) Creating a Change Set before code exists
 
 A Change Set is created **as soon as the user declares intent**, not when code appears.
@@ -77,8 +71,6 @@ At this point:
 This Change Set is still valid.
 
 It represents **intent + ownership**, not implementation.
-
----
 
 ## 4) Externally authored (opaque) Change Sets
 
@@ -103,8 +95,6 @@ This means:
 
 Opaque does **not** mean ungoverned.
 
----
-
 ## 5) Branch and PR creation strategy
 
 ### Core rule
@@ -124,8 +114,6 @@ Opaque does **not** mean ungoverned.
 This ensures:
 - traceability from the first moment
 - a stable anchor for all future evidence
-
----
 
 ## 6) Initial commit as a Change Context anchor
 
@@ -159,8 +147,6 @@ This commit:
 
 Keeping this file in the repo is recommended.
 
----
-
 ## 7) Detecting progress without observing authoring
 
 PathOps updates Change Set state using **SCM events**, not IDE telemetry.
@@ -185,8 +171,6 @@ draft/opened
 
 No direct knowledge of authoring steps is required.
 
----
-
 ## 8) Evidence expectations for opaque Change Sets
 
 When authoring is opaque, PathOps compensates by requiring **stronger evidence**.
@@ -199,8 +183,6 @@ Examples:
 * stricter policy gates
 
 This preserves trust without violating privacy or boundaries.
-
----
 
 ## 9) Change Sets in the project meta repository
 
@@ -229,8 +211,6 @@ The database contains:
 * correlation IDs
 * detailed metrics
 
----
-
 ## 10) What PathOps does NOT attempt to capture
 
 PathOps does not capture:
@@ -244,8 +224,6 @@ PathOps does not capture:
 This is intentional.
 
 Governance begins at the boundary where changes become observable.
-
----
 
 ## 11) Why this model works
 
@@ -264,8 +242,6 @@ It unifies:
 * mixed workflows
 
 Under a single, deterministic model.
-
----
 
 ## 12) Summary
 
