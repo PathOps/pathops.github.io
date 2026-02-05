@@ -15,6 +15,7 @@ This repository contains the guiding documents for **PathOps**.
 - **[principles.md](./principles.md)** — non-negotiable design 
 principles
 - **[architecture.md](./architecture.md)** — conceptual model + modular implementation map
+- **[change-sets.md](./change-sets.md)** — how PathOps governs project-level changes, including human-authored and opaque workflows
 - **[artifact-states.md](./artifact-states.md)** — PathOps distinguishes between different states of a software artifact
 - **[what-pathops-is-not.md](./what-pathops-is-not.md)** — boundaries and anti-goals
 - **[glossary.md](./glossary.md)** — shared terminology

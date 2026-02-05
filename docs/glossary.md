@@ -67,10 +67,4 @@ A Change Set represents a project-level change transaction.
 It has a lifecycle, produces evidence, and completes only
 when all affected applications and components are successfully deployed.
 
-States:
-- planned
-- in_progress
-- validating
-- completed
-- failed
-- rolled_back
+More at: [change-sets.md](./change-sets.md) 
