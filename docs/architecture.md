@@ -478,4 +478,4 @@ This component is central to:
 * Security: posture (`security.md`)
 * Boundaries: what PathOps is not (`what-pathops-is-not.md`)
 
-```
+---
