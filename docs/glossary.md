@@ -52,3 +52,9 @@ An artifact that has entered a governed path and can evolve safely.
 
 ## Change Intent
 A declared intention to modify a system, evaluated by PathOps.
+
+## Change Context
+
+A structured set of identifiers and metadata that describes what change is being executed, for which artifact, under which path, and in which environment.
+
+Change Context is propagated across pipelines, deploys, and runtime signals to allow PathOps to correlate actions, evidence, and outcomes.
