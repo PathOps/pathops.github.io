@@ -9,8 +9,6 @@ capabilities, and risks.
 
 This document defines those states and the transitions between them.
 
----
-
 ## The Artifact Lifecycle
 
 ![Artifact States](../img/artifact-states.webp)
@@ -23,8 +21,6 @@ PathOps recognizes three primary artifact states:
 
 Each state exists for a reason.
 Skipping states is a source of instability.
-
----
 
 ## 1) Vibe Prototype
 
@@ -54,8 +50,6 @@ It may be created by:
 This is acceptable.
 
 > Exploration is allowed to be messy.
-
----
 
 ## 2) Path-Ready System
 
@@ -98,8 +92,6 @@ Only evolvability is required.
 > Path-Ready does not mean “clean”.
 > It means “changeable without chaos”.
 
----
-
 ## 3) Production System
 
 A **Production System** is a deployed artifact
@@ -126,8 +118,6 @@ operating under real user and operational conditions.
 
 > Production signals. Paths act.
 
----
-
 ## Transitions Between States
 
 ### Vibe Prototype → Path-Ready System  
@@ -143,8 +133,6 @@ This transition:
 - enables governed change
 - allows live evolution
 
----
-
 ### Path-Ready System → Production System  
 **Deploy**
 
@@ -155,8 +143,6 @@ Deployment happens through a defined path:
 - GitOps reconciliation
 
 Promotion without evidence is not allowed.
-
----
 
 ### Production System → Path-Ready System  
 **Incident / Failure**
@@ -173,8 +159,6 @@ The path may:
 
 Production never acts directly.
 
----
-
 ## Why These States Matter
 
 Without explicit artifact states:
@@ -189,8 +173,6 @@ PathOps uses artifact states to ensure that:
 - exploration remains free
 - evolution remains safe
 - production remains observable
-
----
 
 ## Summary
 
