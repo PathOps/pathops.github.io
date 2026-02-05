@@ -477,5 +477,3 @@ This component is central to:
 * Glossary: shared terms (`glossary.md`)
 * Security: posture (`security.md`)
 * Boundaries: what PathOps is not (`what-pathops-is-not.md`)
-
----
