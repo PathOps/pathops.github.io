@@ -20,8 +20,6 @@ This document explains:
 - the **modular implementation** (components, responsibilities, suggested technologies)
 - the **runtime flow** (feature → chage set → PRs → GitOps → preflight → evidence)
 
----
-
 ## 1) Conceptual architecture
 
 ### 1.1 What PathOps governs
@@ -58,8 +56,6 @@ No evidence, no promotion.
 PathOps can propose and automate.
 Humans approve and merge—especially for production changes.
 
----
-
 ## 2) Domain model (nomenclature)
 
 PathOps uses explicit entities to avoid ambiguity.
@@ -85,8 +81,6 @@ No business code repository.
 ### Environment
 - **preflight**: automated validation after deploy (not manual staging)
 - **production**
-
----
 
 ## 3) Repository model (key decision)
 
@@ -141,8 +135,6 @@ Artifacts are initially marked as **not promotable**.
 
 Argo CD reports results back to PathOps via webhooks/events.
 
----
-
 ## 5) Evidence & snapshots
 
 Every deploy, failure, or incident produces an **Evidence Snapshot**:
@@ -157,8 +149,6 @@ Large payloads go to **S3/MinIO**.
 The meta repository stores **metadata + links** only.
 
 This is how PathOps turns “automation” into **auditable trust**.
-
----
 
 ## 6) Agents and responsibilities
 
@@ -177,8 +167,6 @@ Agents are specialized workers that operate only on branches and PRs.
 > Agents do not orchestrate and do not decide.
 > They execute tasks assigned by workflows.
 
----
-
 ## 7) Coordinator (the project-level planner)
 
 The Coordinator is the high-level planner.
@@ -194,8 +182,6 @@ Responsibilities:
   * execution plan
   * tasks per app/component
   * deploy order (dependency graph)
-
----
 
 ## 8) Modular implementation map (software components)
 
@@ -216,8 +202,6 @@ This section maps the conceptual model into implementation modules.
 * PostgreSQL (persistent state)
 * OIDC/Keycloak (auth)
 * Vault (minimal secrets: webhook secrets, short-lived tokens)
-
----
 
 ### 8.2 PathOps Orchestrator (workflow engine)
 
@@ -240,8 +224,6 @@ Model:
 
 > Temporal is core, not an implementation detail.
 
----
-
 ### 8.3 Feature Coordinator
 
 **Responsibility**
@@ -259,8 +241,6 @@ Model:
   * project status
   * declared dependencies
 
----
-
 ### 8.4 Agent Runtime (workers)
 
 **Responsibility**
@@ -277,8 +257,6 @@ Model:
   * OpenAI
   * Aider / Cursor CLI integration
 
----
-
 ### 8.5 LLM Integration Layer (glue, not magic)
 
 **Responsibility**
@@ -291,8 +269,6 @@ Model:
 
 * thin adapter layer (avoid heavy frameworks in MVP)
 * lightweight RAG: meta repo + evidence links + repo content
-
----
 
 ### 8.6 Event Gateway (ingestion layer)
 
@@ -311,8 +287,6 @@ Model:
 * Spring Boot webhook service
 * optional broker later (RabbitMQ/Kafka)
 
----
-
 ### 8.7 Incident Manager
 
 **Responsibility**
@@ -326,8 +300,6 @@ Model:
 * Prometheus/Alertmanager
 * Sentry
 * Dependency Track
-
----
 
 ### 8.8 Evidence Store (snapshot service)
 
@@ -344,8 +316,6 @@ This component is central to:
 * debugging
 * safe automation
 
----
-
 ### 8.9 SCM Integration Service
 
 **Responsibility**
@@ -358,8 +328,6 @@ This component is central to:
 
 * GitHub API / GitLab API
 * scoped tool tokens
-
----
 
 ### 8.10 GitOps Bridge (Argo integration)
 
@@ -374,8 +342,6 @@ This component is central to:
 * Argo CD webhooks + API where needed
 * git operations by controlled workers
 
----
-
 ### 8.11 Identity & Access
 
 **Responsibility**
@@ -387,8 +353,6 @@ This component is central to:
 **Suggested technologies**
 
 * Keycloak + OIDC providers
-
----
 
 ### 8.12 PathOps UI (chat-first)
 
@@ -412,8 +376,6 @@ This component is central to:
 * Web app (React/Vue/Svelte)
 * terminal-like
 
----
-
 ### 8.13 CLI (optional)
 
 **Responsibility**
@@ -426,8 +388,6 @@ This component is central to:
 
 * Go or Node
 * talks to Control Plane API
-
----
 
 ### 8.14 Bootstrap Bundles
 
@@ -445,8 +405,6 @@ This component is central to:
 * YAML + scripts
 * executed via CLI/workers
 
----
-
 ## 9) The system in one sentence
 
 * **Control Plane decides**
@@ -457,8 +415,6 @@ This component is central to:
 * **Evidence proves**
 * **PRs connect everything**
 
----
-
 ## 10) What this enables
 
 * AI-assisted change at high speed without losing control
@@ -466,8 +422,6 @@ This component is central to:
 * preflight validation as a default path
 * failures that produce durable artifacts (snapshots)
 * recovery via PRs, not hidden patches
-
----
 
 ## 11) Related docs
 
