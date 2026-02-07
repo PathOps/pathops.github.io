@@ -253,4 +253,3 @@ Under a single, deterministic model.
 
 > Change is inevitable.
 > Observability starts at the rails.
-
