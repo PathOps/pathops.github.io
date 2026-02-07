@@ -68,3 +68,13 @@ Cross-namespace read-only RBAC satisfies evidence needs while limiting risk.
 
 This decision is intended for the Golden Path demo and may remain the default
 unless a strong operational reason exists to centralize agents.
+
+## Demo clarification
+
+This decision does not mandate a specific Kubernetes isolation mechanism.
+
+In the demo environment:
+- agent, preflight, and production namespaces live inside a per-user vcluster
+
+In the product:
+- these namespaces live in user-managed clusters

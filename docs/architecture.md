@@ -82,6 +82,23 @@ No business code repository.
 - **preflight**: automated validation after deploy (not manual staging)
 - **production**
 
+### Target Environments
+
+PathOps operates on **logical environments** such as:
+
+- agents
+- preflight
+- production
+
+How these environments are mapped to Kubernetes constructs
+(namespaces, clusters, or virtual clusters)
+is considered an **infrastructure concern**.
+
+In the demo environment, these environments are implemented as
+namespaces inside a per-user virtual cluster (vcluster).
+
+In the product, these environments live in user-provided clusters.
+
 ## 3) Repository model (key decision)
 
 ### 3.1 Per app: two repositories

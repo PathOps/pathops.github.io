@@ -218,3 +218,10 @@ It:
 - completes only when all affected components are successfully deployed
 
 Change Sets provide determinism, auditability, and controlled evolution.
+
+### Virtual Cluster (vcluster)
+
+A Kubernetes abstraction used in the PathOps demo to simulate
+per-user clusters on top of a shared host cluster.
+
+Not required or assumed by the PathOps product.
