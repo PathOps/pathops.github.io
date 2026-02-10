@@ -65,4 +65,5 @@ A quick walkthrough:
 ## Links
 - [Manifesto](./docs/manifesto.md)
 - [Architecture](./docs/architecture.md)
+- [Docs](./docs/README.md)
 - [GitHub](https://github.com/orgs/PathOps/repositories)
