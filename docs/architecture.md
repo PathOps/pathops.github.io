@@ -274,6 +274,17 @@ Model:
   * OpenAI
   * Aider / Cursor CLI integration
 
+
+## Maintainer communication (PR-centric)
+
+PathOps communicates proposed fixes through Pull Requests / Merge Requests.
+To ensure maintainers are aware and can track progress, PathOps:
+- assigns and/or requests review on PR/MR creation
+- maintains a single "PathOps Status" comment updated on workflow transitions
+
+This design leverages SCM-native notification channels and keeps the PR/MR
+as the operational source of truth for maintainers.
+
 ### 8.5 LLM Integration Layer (glue, not magic)
 
 **Responsibility**
