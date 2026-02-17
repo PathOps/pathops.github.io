@@ -48,6 +48,9 @@ PathOps is a control plane that coordinates:
 
 PathOps makes production behavior part of the feedback loop.
 
+PathOps reacts to external operational signals
+rather than defining how those signals are generated.
+
 ## The mental model
 
 - **Live coding** is the locomotive.

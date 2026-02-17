@@ -225,6 +225,11 @@ This is intentional.
 
 Governance begins at the boundary where changes become observable.
 
+## Signals
+
+Evidence attached to a Change Set may originate from
+external observability systems and is collected on a best-effort basis.
+
 ## 11) Why this model works
 
 This design:

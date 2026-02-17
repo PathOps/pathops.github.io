@@ -44,3 +44,10 @@ In the actual PathOps product:
 - No vcluster technology is required or assumed
 
 vcluster is strictly a **demo scaffolding technique**.
+
+## ArgoCD in the demo
+
+In the demo environment, each tenant vcluster includes its own ArgoCD instance.
+This is done to keep the tenant experience self-contained and easy to reason about.
+
+This does not imply that the PathOps product requires or mandates per-tenant ArgoCD.

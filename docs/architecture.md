@@ -318,6 +318,16 @@ Model:
 * Sentry
 * Dependency Track
 
+## Observability and Alerting
+
+PathOps does not perform observability or alerting functions.
+
+Metric collection, log aggregation, and alert evaluation
+are handled by external systems.
+
+PathOps integrates with these systems through alert webhooks
+and evidence connectors.
+
 ### 8.8 Evidence Store (snapshot service)
 
 **Responsibility**
