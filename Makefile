@@ -11,3 +11,6 @@ chat-zip:
 	@echo "1) Start a new chat"
 	@echo "2) Attach $(CHAT_ZIP)"
 	@echo "3) Paste the bootstrap message"
+
+export-chatgpt:
+	./scripts/export_repo_for_chatgpt.sh
