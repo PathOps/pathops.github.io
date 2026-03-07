@@ -219,9 +219,21 @@ It:
 
 Change Sets provide determinism, auditability, and controlled evolution.
 
-### Virtual Cluster (vcluster)
+## Virtual Cluster (vcluster)
 
 A Kubernetes abstraction used in the PathOps demo to simulate
 per-user clusters on top of a shared host cluster.
 
 Not required or assumed by the PathOps product.
+
+## Ephemeral Environment
+Temporary deployment environment created for pull requests.
+
+## Environment Scheduler
+Component responsible for allocating environments for tests.
+
+## Sandbox
+Isolated runtime environment for a tenant or team.
+
+## Garbage Collector
+System that cleans up unused environments.

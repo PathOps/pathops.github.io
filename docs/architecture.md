@@ -20,9 +20,9 @@ This document explains:
 - the **modular implementation** (components, responsibilities, suggested technologies)
 - the **runtime flow** (feature → chage set → PRs → GitOps → preflight → evidence)
 
-## 1) Conceptual architecture
+## Conceptual architecture
 
-### 1.1 What PathOps governs
+### What PathOps governs
 PathOps governs **intent and promotion**, not code generation.
 
 - Humans (and AI tools) can generate changes.
@@ -32,7 +32,7 @@ PathOps governs **intent and promotion**, not code generation.
 PathOps integrates with existing tools (CI, Git providers, GitOps controllers, scanners, observability).
 It does not replace them.
 
-### 1.2 Core principle boundaries
+### Core principle boundaries
 
 #### PR-first change
 All meaningful change is expressed as pull requests:
@@ -56,7 +56,7 @@ No evidence, no promotion.
 PathOps can propose and automate.
 Humans approve and merge—especially for production changes.
 
-## 2) Domain model (nomenclature)
+## Domain model (nomenclature)
 
 PathOps uses explicit entities to avoid ambiguity.
 
@@ -99,9 +99,9 @@ namespaces inside a per-user virtual cluster (vcluster).
 
 In the product, these environments live in user-provided clusters.
 
-## 3) Repository model (key decision)
+## Repository model (key decision)
 
-### 3.1 Per app: two repositories
+### Per app: two repositories
 
 Each app has:
 
@@ -115,16 +115,16 @@ Each app has:
 
 **Rule:** no human documentation or project meta in these repos.
 
-### 3.2 Per project: one meta repository
+### Per project: one meta repository
 
 One repo per project, e.g. `shop-meta`.
 
 This repo is the single place where humans and PathOps coordinate at the project level.
 
 
-## 4) Runtime flow (GitOps + evidence)
+## Runtime flow (GitOps + evidence)
 
-### 4.1 Build pipeline (in `app-src`)
+### Build pipeline (in `app-src`)
 
 Typical steps:
 
@@ -135,7 +135,36 @@ Typical steps:
 
 Artifacts are initially marked as **not promotable**.
 
-### 4.2 Deploy pipeline (via GitOps)
+## Ephemeral Environments
+
+PathOps supports ephemeral environments automatically created for pull requests.
+
+These environments allow full integration testing of a change before it is merged.
+
+Typical lifecycle:
+
+PR opened
+→ CI build and unit tests
+→ PathOps requests ephemeral environment
+→ deploy preview environment
+→ run integration / e2e tests
+→ evidence collected
+→ environment destroyed
+
+Ephemeral environments provide:
+
+- safe validation of changes
+- realistic integration testing
+- preview URLs for manual validation
+- automatic cleanup after merge or PR close
+
+Implementation strategies may include:
+
+- Kubernetes namespaces
+- virtual clusters (vcluster)
+- sandbox environments
+
+### Deploy pipeline (via GitOps)
 
 * PathOps modifies `app-gitops`
 * Argo CD reconciles to the cluster
@@ -152,7 +181,7 @@ Artifacts are initially marked as **not promotable**.
 
 Argo CD reports results back to PathOps via webhooks/events.
 
-## 5) Evidence & snapshots
+## Evidence & snapshots
 
 Every deploy, failure, or incident produces an **Evidence Snapshot**:
 
@@ -167,7 +196,7 @@ The meta repository stores **metadata + links** only.
 
 This is how PathOps turns “automation” into **auditable trust**.
 
-## 6) Agents and responsibilities
+## Agents and responsibilities
 
 Agents are specialized workers that operate only on branches and PRs.
 
@@ -184,7 +213,7 @@ Agents are specialized workers that operate only on branches and PRs.
 > Agents do not orchestrate and do not decide.
 > They execute tasks assigned by workflows.
 
-## 7) Coordinator (the project-level planner)
+## Coordinator (the project-level planner)
 
 The Coordinator is the high-level planner.
 
@@ -200,11 +229,11 @@ Responsibilities:
   * tasks per app/component
   * deploy order (dependency graph)
 
-## 8) Modular implementation map (software components)
+## Modular implementation map (software components)
 
 This section maps the conceptual model into implementation modules.
 
-### 8.1 PathOps Control Plane (the brain)
+### PathOps Control Plane (the brain)
 
 **Responsibility**
 
@@ -220,7 +249,7 @@ This section maps the conceptual model into implementation modules.
 * OIDC/Keycloak (auth)
 * Vault (minimal secrets: webhook secrets, short-lived tokens)
 
-### 8.2 PathOps Orchestrator (workflow engine)
+### PathOps Orchestrator (workflow engine)
 
 **Responsibility**
 
@@ -241,7 +270,7 @@ Model:
 
 > Temporal is core, not an implementation detail.
 
-### 8.3 Feature Coordinator
+### Feature Coordinator
 
 **Responsibility**
 
@@ -258,7 +287,7 @@ Model:
   * project status
   * declared dependencies
 
-### 8.4 Agent Runtime (workers)
+### Agent Runtime (workers)
 
 **Responsibility**
 
@@ -285,7 +314,7 @@ To ensure maintainers are aware and can track progress, PathOps:
 This design leverages SCM-native notification channels and keeps the PR/MR
 as the operational source of truth for maintainers.
 
-### 8.5 LLM Integration Layer (glue, not magic)
+### LLM Integration Layer (glue, not magic)
 
 **Responsibility**
 
@@ -298,7 +327,7 @@ as the operational source of truth for maintainers.
 * thin adapter layer (avoid heavy frameworks in MVP)
 * lightweight RAG: meta repo + evidence links + repo content
 
-### 8.6 Event Gateway (ingestion layer)
+### Event Gateway (ingestion layer)
 
 **Responsibility**
 
@@ -315,7 +344,7 @@ as the operational source of truth for maintainers.
 * Spring Boot webhook service
 * optional broker later (RabbitMQ/Kafka)
 
-### 8.7 Incident Manager
+### Incident Manager
 
 **Responsibility**
 
@@ -339,7 +368,7 @@ are handled by external systems.
 PathOps integrates with these systems through alert webhooks
 and evidence connectors.
 
-### 8.8 Evidence Store (snapshot service)
+### Evidence Store (snapshot service)
 
 **Responsibility**
 
@@ -354,7 +383,7 @@ This component is central to:
 * debugging
 * safe automation
 
-### 8.9 SCM Integration Service
+### SCM Integration Service
 
 **Responsibility**
 
@@ -367,7 +396,7 @@ This component is central to:
 * GitHub API / GitLab API
 * scoped tool tokens
 
-### 8.10 GitOps Bridge (Argo integration)
+### GitOps Bridge (Argo integration)
 
 **Responsibility**
 
@@ -392,7 +421,7 @@ This component is central to:
 
 * Keycloak + OIDC providers
 
-### 8.12 PathOps UI (chat-first)
+### PathOps UI (chat-first)
 
 **Responsibility**
 
@@ -414,7 +443,7 @@ This component is central to:
 * Web app (React/Vue/Svelte)
 * terminal-like
 
-### 8.13 CLI (optional)
+### CLI (optional)
 
 **Responsibility**
 
@@ -427,7 +456,7 @@ This component is central to:
 * Go or Node
 * talks to Control Plane API
 
-### 8.14 Bootstrap Bundles
+### Bootstrap Bundles
 
 **Responsibility**
 
@@ -443,7 +472,7 @@ This component is central to:
 * YAML + scripts
 * executed via CLI/workers
 
-## 9) The system in one sentence
+## The system in one sentence
 
 * **Control Plane decides**
 * **Temporal guarantees**
@@ -453,7 +482,7 @@ This component is central to:
 * **Evidence proves**
 * **PRs connect everything**
 
-## 10) What this enables
+## What this enables
 
 * AI-assisted change at high speed without losing control
 * auditable promotion to production
@@ -461,7 +490,7 @@ This component is central to:
 * failures that produce durable artifacts (snapshots)
 * recovery via PRs, not hidden patches
 
-## 11) Related docs
+## Related docs
 
 * Manifesto: why PathOps exists (`manifesto.md`)
 * Principles: non-negotiables (`principles.md`)
