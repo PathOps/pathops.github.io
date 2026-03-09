@@ -1,49 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-OUTPUT="repo_dump.md"
 DOCS_DIR="docs"
 
-{
-  echo "# Repository Export (docs/)"
-  echo
-  echo "Generated on: $(date)"
-  echo
-  echo "---"
-  echo
-  echo "## 📑 Index"
-  echo
+REPO_NAME="$(basename "$(git -C "$DOCS_DIR" rev-parse --show-toplevel)" | tr '.' '-')"
+OUTPUT="${REPO_NAME}-docs_dump.txt"
 
-  # Índice
-  git -C "$DOCS_DIR" ls-files | while read -r file; do
-    echo "- docs/$file"
-  done
+git -C "$DOCS_DIR" ls-files | while read -r file; do
+  FULL_PATH="$DOCS_DIR/$file"
 
-  echo
-  echo "---"
-  echo
+  if file --mime "$FULL_PATH" | grep -q 'charset='; then
+    echo "===== FILE: $file ====="
+    cat "$FULL_PATH"
+    echo
+  fi
+done > "$OUTPUT"
 
-  # Contenido
-  git -C "$DOCS_DIR" ls-files | while read -r file; do
-    FULL_PATH="$DOCS_DIR/$file"
-
-    if file --mime "$FULL_PATH" | grep -q 'charset='; then
-      ext="${file##*.}"
-      lang="$ext"
-      [ "$ext" = "$file" ] && lang="text"
-
-      echo "## 📄 docs/$file"
-      echo
-      echo "\`\`\`$lang"
-      cat "$FULL_PATH"
-      echo
-      echo "\`\`\`"
-      echo
-      echo "---"
-      echo
-    fi
-  done
-
-} > "$OUTPUT"
-
-echo "Export completed → $OUTPUT"
+echo "Export completed -> $OUTPUT"
