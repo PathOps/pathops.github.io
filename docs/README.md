@@ -15,7 +15,7 @@ This repository contains the guiding documents for **PathOps**.
 - **[principles.md](./principles.md)** — non-negotiable design 
 principles
 - **[architecture.md](./architecture.md)** — conceptual model + modular implementation map
-- **[change-sets.md](./change-sets.md)** — how PathOps governs project-level changes, including human-authored and opaque workflows
+- **[changes.md](./changes.md)** — how PathOps governs project-level changes, including human-authored and opaque workflows
 - **[artifact-states.md](./artifact-states.md)** — PathOps distinguishes between different states of a software artifact
 - **[golden-path-autopilot-flow.md](./golden-path-autopilot-flow.md)** — This document describes the Golden Path autopilot workflow for the demo
 - **[golden-path-demo-topology.md](./golden-path-demo-topology.md)** — This document defines the **demo topology** for PathOps and the minimal set of external tools required for the Golden Path demo

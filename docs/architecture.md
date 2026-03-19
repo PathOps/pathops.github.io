@@ -69,9 +69,9 @@ A logical product (e.g., `shop`).
 Contains multiple apps and components.
 Has exactly one **meta repository**.
 
-### App
-A deployable unit (API, frontend, websocket, worker).
-Treated as a black box by the coordinator.
+### Evolvable Unit (App)
+Deployable and evolvable unit (repo + pipeline + manifests + runtime state).  
+In CLI and UI this is usually called Application (app).
 
 ### Component
 First-class infrastructure (Postgres, Redis, Keycloak, etc.).
@@ -255,7 +255,7 @@ This section maps the conceptual model into implementation modules.
 
 * long-running reliable workflows:
 
-  * feature → change set → PRs → deploy → evidence → close
+  * feature → change → PRs → deploy → evidence → close
   * incident → snapshot → recovery PR
 * retries, timeouts, compensation paths
 
@@ -433,7 +433,7 @@ This component is central to:
   * read-only queries
 * visualization of:
 
-  * Change Sets
+  * Change
   * PRs
   * deploy status
   * evidence

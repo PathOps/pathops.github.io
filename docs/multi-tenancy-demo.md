@@ -1,5 +1,14 @@
 # Multi-Tenancy in the PathOps Demo
 
+## Tenant ownership
+
+Tenants are owned by the PathOps control plane.
+
+Keycloak provides identity,
+but tenant lifecycle is managed by PathOps.
+
+In the demo, a tenant may be created automatically when a user logs in for the first time.
+
 ## Important scope note
 
 This document describes **demo-only implementation details**.
@@ -23,7 +32,7 @@ This approach is used to:
 ## Demo topology
 
 - One **host Kubernetes cluster** (microk8s)
-- One **vcluster per registered user**
+- One **vcluster per tenent owner**
 - Each vcluster contains:
   - `<app>-agents`
   - `<app>-preflight`

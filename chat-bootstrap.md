@@ -5,7 +5,7 @@ especialmente:
 - manifesto.md
 - principles.md
 - architecture.md
-- change-sets.md
+- changes.md
 - decisions/*
 
 No estamos empezando desde cero.

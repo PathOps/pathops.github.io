@@ -1,38 +1,35 @@
 # [Docs](./README.md)
-# Change Sets
-## Governing human-authored and opaque changes
+# Changes
 
-PathOps governs **change**, not conversations.
+## Change model
 
-In modern workflows, changes may be authored:
-- by humans using local IDEs (Cursor, VS Code, Vim)
-- by AI-assisted tools
-- by agents operating inside PathOps
-- or by any combination of the above
+In PathOps, Change is the primary lifecycle object.
 
-PathOps does **not** attempt to observe or capture private authoring interactions.
-Instead, it governs the **observable outcomes**:
-branches, pull requests, checks, deployments, and evidence.
+A Change represents the evolution of an Evolvable Unit.
 
-This document defines how **Change Sets** work when authoring is partially or fully opaque.
+A Change may produce patch bundles, pull requests,
+deployments, and evidence records.
 
-## 1) What a Change Set represents
+Older versions of the documentation used the term
+Change. The current term is Change.
 
-A **Change Set** is the core unit of change in PathOps.
+## 1) What a Change represents
 
-A Change Set is:
+A **Change** is the core unit of change in PathOps.
+
+A Change is:
 - a **project-level change transaction**
 - spanning one or more repositories
 - validated and deployed as a single unit
 - completed only when all required evidence is produced
 
-A Change Set has:
+A Change has:
 - a lifecycle
 - explicit state
 - evidence
 - reversibility expectations
 
-PathOps treats Change Sets as first-class objects, regardless of how the code was written.
+PathOps treats Changes as first-class objects, regardless of how the code was written.
 
 ## 2) The problem of opaque authoring
 
@@ -54,25 +51,25 @@ It is a **boundary**.
 
 The system must remain correct and auditable even when authoring is opaque.
 
-## 3) Creating a Change Set before code exists
+## 3) Creating a Change before code exists
 
-A Change Set is created **as soon as the user declares intent**, not when code appears.
+A Change is created **as soon as the user declares intent**, not when code appears.
 
 Example:
 - user clicks **“New change”**
 - user provides a short intent description
-- PathOps immediately creates a Change Set
+- PathOps immediately creates a Change
 
 At this point:
 - no code may exist
 - no commits may exist
 - no PR may exist
 
-This Change Set is still valid.
+This Change is still valid.
 
 It represents **intent + ownership**, not implementation.
 
-## 4) Externally authored (opaque) Change Sets
+## 4) Externally authored (opaque) Changes
 
 PathOps explicitly models authoring mode and observability.
 
@@ -84,7 +81,7 @@ PathOps explicitly models authoring mode and observability.
 - `observability`:  
   `opaque | observed`
 
-An externally authored Change Set is typically:
+An externally authored Change is typically:
 
 - `authoring_mode: human`
 - `observability: opaque`
@@ -98,13 +95,13 @@ Opaque does **not** mean ungoverned.
 ## 5) Branch and PR creation strategy
 
 ### Core rule
-**Every Change Set must anchor to observable Git artifacts.**
+**Every Change must anchor to observable Git artifacts.**
 
 ### Recommended flow
 
 1. User clicks **New change**
 2. PathOps:
-   - creates Change Set `CS-0042`
+   - creates Change `CS-0042`
    - creates a branch: `cs-0042/<slug>`
    - creates a PR/MR immediately
 3. UI presents:
@@ -149,7 +146,7 @@ Keeping this file in the repo is recommended.
 
 ## 7) Detecting progress without observing authoring
 
-PathOps updates Change Set state using **SCM events**, not IDE telemetry.
+PathOps updates Change state using **SCM events**, not IDE telemetry.
 
 Signals include:
 
@@ -171,7 +168,7 @@ draft/opened
 
 No direct knowledge of authoring steps is required.
 
-## 8) Evidence expectations for opaque Change Sets
+## 8) Evidence expectations for opaque Changes
 
 When authoring is opaque, PathOps compensates by requiring **stronger evidence**.
 
@@ -184,7 +181,7 @@ Examples:
 
 This preserves trust without violating privacy or boundaries.
 
-## 9) Change Sets in the project meta repository
+## 9) Changes in the project meta repository
 
 Even if PathOps stores full state in a database, the **project meta repository**
 acts as an auditable, portable record.
@@ -227,7 +224,7 @@ Governance begins at the boundary where changes become observable.
 
 ## Signals
 
-Evidence attached to a Change Set may originate from
+Evidence attached to a Change may originate from
 external observability systems and is collected on a best-effort basis.
 
 ## 11) Why this model works
@@ -250,7 +247,7 @@ Under a single, deterministic model.
 
 ## 12) Summary
 
-* Change Sets exist **before code**
+* Changes exist **before code**
 * Authoring can be opaque without breaking governance
 * Branches and PRs anchor observability
 * Evidence replaces visibility into drafting

@@ -116,6 +116,18 @@ URLs:
 - `production-shop-frontend-tango-otter.demo.pathops.io`
 - `agents-shop-frontend-tango-otter.demo.pathops.io`
 
+## Tenant source of truth
+
+Tenant identifiers and slugs are owned by the PathOps control plane.
+
+Keycloak provides authentication, but tenantId and tenantSlug are resolved by PathOps.
+
+tenantId 
+- internal identifier
+
+tenantSlug
+- human-readable identifier used in hostnames
+
 ## Operational notes
 
 ### Certificate automation

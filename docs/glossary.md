@@ -1,9 +1,75 @@
 # [Docs](./README.md) 
 # PathOps Glossary
 
-## App
-A deployable unit tracked by PathOps (API, SPA frontend, worker, websocket server, etc.).
-Typically maps to one source repository and one GitOps repository.
+## Evolvable Unit
+
+Formal domain term for the smallest unit managed by PathOps.
+
+An Evolvable Unit represents a deployable and evolvable system component,
+including its source code, build pipelines, deployment manifests,
+runtime configuration, and operational history.
+
+In the CLI and UI, Evolvable Units are usually referred to as
+Applications (app).
+
+Examples:
+- shop-backend
+- shop-frontend
+- payment-service
+
+
+## Application (App)
+
+CLI / UI term for Evolvable Unit.
+
+Examples:
+
+pathops app create
+pathops app deploy
+pathops app list
+
+
+## Change
+
+A Change is the primary lifecycle object managed by PathOps.
+
+A Change represents an evolution of an Evolvable Unit,
+including code, configuration, or deployment state.
+
+A Change may originate from:
+
+- user request
+- alert / incident
+- autopilot / fix agent
+- scheduled operation
+
+A Change goes through a controlled lifecycle:
+
+intent → validation → preflight → deploy → evidence → completed
+
+
+## Change Intent
+
+A Change Intent is the initial declaration of a Change.
+
+It describes what the user (or agent) wants to modify,
+before the system generates patches, bundles, or PRs.
+
+A Change Intent may produce:
+
+- patch bundles
+- pull requests
+- deployment operations
+- validation runs
+
+
+## Change Set (legacy term)
+
+Older documentation may refer to Change Sets.
+
+Change Set has been replaced by Change.
+
+The term is kept only for historical reference.
 
 ## Preflight
 A deployment environment used to validate reality before production promotion.
@@ -59,18 +125,6 @@ A structured set of identifiers and metadata that describes what change is being
 
 Change Context is propagated across pipelines, deploys, and runtime signals to allow PathOps to correlate actions, evidence, and outcomes.
 
-## Change Set
-A coordinated set of changes spanning one or more repositories
-that must be validated and deployed as a single unit.
-
-A Change Set represents a project-level change transaction.
-It has a lifecycle, produces evidence, and completes only
-when all affected applications and components are successfully deployed.
-
-More at: [change-sets.md](./change-sets.md) 
-
----
-
 ## Agent
 A specialized, single-responsibility workload executed by PathOps
 to perform a concrete operational task.
@@ -79,8 +133,6 @@ Agents do not orchestrate workflows and do not make promotion decisions.
 They execute assigned work and report results back to the Control Plane.
 
 Agents always operate under explicit guardrails and least-privilege credentials.
-
----
 
 ## Evidence Collector Agent
 An agent responsible for capturing an **Evidence Snapshot**
@@ -95,8 +147,6 @@ The Evidence Collector:
 - reports a `snapshot_id` back to the PathOps Control Plane
 
 The Evidence Collector never modifies application state.
-
----
 
 ## Verification Agent
 An agent responsible for **post-deploy validation** in the preflight environment.
@@ -113,8 +163,6 @@ The Verification Agent:
 - reports pass/fail results and optional artifacts to PathOps
 
 Verification is required before promotion to production.
-
----
 
 ## Fix Agent
 An agent responsible for producing a **proposed fix** in response to
@@ -135,8 +183,6 @@ The Fix Agent does not:
 
 It proposes fixes; promotion is governed by PathOps.
 
----
-
 ## Patch Bundle
 A portable artifact containing a proposed code change produced by a Fix Agent.
 
@@ -149,8 +195,6 @@ A Patch Bundle:
 Patch Bundles allow large or complex fixes to be handled without
 passing large payloads through the Control Plane API.
 
----
-
 ## snapshot_id
 A stable identifier referencing an Evidence Snapshot stored in object storage.
 
@@ -158,8 +202,6 @@ The `snapshot_id` is used to:
 - correlate incidents, deploys, and fixes
 - provide context to Fix Agents
 - attach evidence to Change Sets and pull requests
-
----
 
 ## patch_id
 A stable identifier referencing a Patch Bundle stored in object storage.
@@ -170,8 +212,6 @@ The `patch_id` is passed between:
 - CI systems (e.g. Jenkins)
 
 It allows fixes to be applied deterministically and auditable.
-
----
 
 ## App Agents Namespace
 A Kubernetes namespace dedicated to running PathOps agents for a single app.
@@ -190,8 +230,6 @@ This namespace hosts:
 
 App agent namespaces provide isolation, clear ownership, and least-privilege RBAC.
 
----
-
 ## Preflight Environment
 A deployment environment used to validate reality before production promotion.
 
@@ -201,23 +239,6 @@ Preflight is:
 - not intended for manual testing or long-lived staging
 
 Failures in preflight produce evidence and block promotion.
-
----
-
-## Change Set
-A coordinated set of changes spanning one or more repositories
-that must be validated and deployed as a single unit.
-
-A Change Set represents a **project-level change transaction**.
-
-It:
-- originates from a feature, fix, or incident
-- tracks related pull requests
-- references evidence (`snapshot_id`)
-- references fixes (`patch_id`)
-- completes only when all affected components are successfully deployed
-
-Change Sets provide determinism, auditability, and controlled evolution.
 
 ## Virtual Cluster (vcluster)
 
